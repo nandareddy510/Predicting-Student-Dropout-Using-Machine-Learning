@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction of University</title>
+    <link href="/static/tooplate-cloud-sync-style.css" rel="stylesheet">
+    
+
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dropout Prediction of University</div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'view_dataset' %}">View Dataset</a>
+                <a href="{% url 'model_train' %}">Model Train</a>
+                <a href="{% url 'prediction' %}">Prediction</a>
+                <a href="{% url 'index' %}">Logout</a>
+                
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="cta-button">Start Free Trial</a>
+        </div>
+    </nav>
+    <br><br>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-backgrounds">
+            <div class="hero-bg"></div>
+            <div class="hero-bg"></div>
+            <div class="hero-bg"></div>
+        </div>
+        <div style="width: 85%; padding-left: 15%;">
+            <h2>View Dataset Details</h2>
+            <br>
+           
+            <h4>{{ table|safe }}</h4>
+            
+        </div>
+    </section>
+
+ 
+
+    
+
+<script src="/static/tooplate-cloud-scripts.js"></script>
+</body>
+</html>

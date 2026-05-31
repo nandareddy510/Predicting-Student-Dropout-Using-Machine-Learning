@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropout Prediction of University</title>
+  <link href="/static/tooplate-cloud-sync-style.css" rel="stylesheet">
+  <style>
+    /* Centering the form inside the page */
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* Card Styling */
+    .form-card {
+      background: lightgoldenrodyellow;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Title */
+    .form-card h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    /* Add stylish select dropdown */
+    .select-container {
+      position: relative;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .custom-select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #aaa;
+      border-radius: 8px;
+      background-color: #f1f1f1;
+      appearance: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .custom-select:focus {
+      border-color: #4caf50;
+      outline: none;
+      background-color: #eaf7e8;
+    }
+
+    /* Arrow icon styling */
+    .custom-select::-ms-expand {
+      display: none;
+    }
+
+    /* Modern animated select dropdown */
+    .custom-select-wrapper {
+      position: relative;
+    }
+
+    .custom-select-wrapper::after {
+      content: '▼';
+      font-size: 18px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #4caf50;
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+
+    .custom-select-wrapper.open::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    /* Hover effect for select */
+    .custom-select:hover {
+      background-color: #e8f3e1;
+    }
+
+    /* Style for Submit Button */
+    .submit-btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 500px) {
+      .form-card {
+        padding: 20px;
+      }
+
+      .submit-btn {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Dropout Prediction of University</div>
+      <div class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'view_dataset' %}">View Dataset</a>
+        <a href="{% url 'model_train' %}">Model Train</a>
+        <a href="{% url 'prediction' %}">Prediction</a>
+        <a href="{% url 'index' %}">Logout</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="cta-button">Start Free Trial</a>
+    </div>
+  </nav>
+  <br><br>
+
+  <!-- Animated Background -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <br><br><br>
+  <!-- Form Section -->
+  <div class="form-container">
+    <div class="form-card">
+      <form method="POST" action="{% url 'model_train' %}">
+        {% csrf_token %}
+        <h2>Algorithm Model Train</h2>
+        <div class="select-container">
+          <div class="custom-select-wrapper">
+            <select class="custom-select" id="dropdown" name="algo" required>
+              <option value="">Choose Algorithm</option>
+              <option value="1">MLPClassifier</option>
+              <option value="2">AdaBoost Classifier</option>
+              <option value="3">Stacking Classifier</option>
+              <option value="4">Voting Classifier</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+
+        <!-- Display Message if exists -->
+        <div>
+          {% if msg %}
+          <h2>{{ msg }}</h2>
+          {% endif %}
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/tooplate-cloud-scripts.js"></script>
+  <script>
+    // Optional: Add animation class to toggle dropdown arrow when clicked
+    document.querySelector('.custom-select').addEventListener('focus', function () {
+      this.closest('.custom-select-wrapper').classList.add('open');
+    });
+
+    document.querySelector('.custom-select').addEventListener('blur', function () {
+      this.closest('.custom-select-wrapper').classList.remove('open');
+    });
+  </script>
+</body>
+
+</html>

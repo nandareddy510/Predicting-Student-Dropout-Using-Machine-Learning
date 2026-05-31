@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction of University</title>
+    <link href="/static/tooplate-cloud-sync-style.css" rel="stylesheet">
+    
+
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dropout Prediction of University</div>
+            <div class="nav-links">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'register' %}">Registration</a>
+                <a href="{% url 'login' %}">Login</a>
+                
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="cta-button">Start Free Trial</a>
+        </div>
+    </nav>
+
+    <br><br><br><br>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h3>About Project Info</h3>
+                <h2>A Platform for Early Class Dropout Prediction of University Students</h2>
+                <p class="about-subtitle">This study focuses on early identification of at-risk students, aiming to predict early class dropout by analyzing key demographic, academic, and behavioral factors. Using a dataset from Kaggle, which includes various predictors of student retention, the research applies machine learning techniques such as Multi-Layer Perceptron (MLP), AdaBoost, Stacking Classifier, and Voting Classifier to identify students at risk of early dropout.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Accuracy Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Machiche-Learning</div>
+                        <div class="stat-label">Techomologies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Python</div>
+                        <div class="stat-label">Implemented Django Framework</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Web Development</div>
+                        <div class="stat-label">HTML, CSS, JS are used</div>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p>The objective of this project is to develop an early dropout prediction model for university students using machine learning techniques. By analyzing key demographic, academic, and behavioral factors, the project aims to identify students at risk of dropping out before it happens. Machine learning algorithms such as MLP, AdaBoost, Stacking Classifier, and Voting Classifier will be applied to predict dropout likelihood, enabling institutions to intervene early.</p>
+                    <p>The goal is to improve student retention by providing actionable insights based on predictive analytics, ultimately enhancing the educational experience and reducing the financial and academic consequences of student attrition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<script src="/static/tooplate-cloud-scripts.js"></script>
+</body>
+</html>

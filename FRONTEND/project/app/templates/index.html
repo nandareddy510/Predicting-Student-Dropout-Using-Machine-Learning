@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction of University</title>
+    <link href="/static/tooplate-cloud-sync-style.css" rel="stylesheet">
+    
+
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dropout Prediction of University</div>
+            <div class="nav-links">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'register' %}">Registration</a>
+                <a href="{% url 'login' %}">Login</a>
+                
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="cta-button">Start Free Trial</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-backgrounds">
+            <div class="hero-bg"></div>
+            <div class="hero-bg"></div>
+            <div class="hero-bg"></div>
+        </div>
+        <div class="hero-content">
+            <h1>A Platform for Early Class Dropout Prediction of University Students</h1>
+            <p class="hero-subtitle">The increasing rate of student dropout in higher education institutions poses a significant challenge to educational success and resource allocation.</p>
+            <a href="{% url 'register' %}" class="cta-button" style="font-size: 1.1rem; padding: 0.75rem 2rem;">Get Started </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="features-header">
+                <h2>Specified the Technologies and Algorithms</h2>
+                <p class="features-subtitle">Powerful features designed to streamline your workflow and boost productivity</p>
+            </div>
+            
+            <div class="features-layout">
+                <!-- Two Column Features -->
+                <div class="features-two-col">
+                    <div class="feature-card-large">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Machine Learning</h3>
+                        <p>Here list algorithms Implemented in project</p>
+                        <ul class="feature-checklist">
+                            <li>Stacking Classifier</li>
+                            <li>Voting Classifier</li>
+                            <li>Adaboost Classifier</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card-large">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Web Development Technologies</h3>
+                        <p>Web Technologies all of them list below and Python Programming and Libraries.</p>
+                        <ul class="feature-checklist">
+                            <li>Html, CSS and JavaScript</li>
+                            <li>Python Programming ( Django) </li>
+                            <li>Pandas, Numpy, Scikit-Learn, Imblearn Libraries.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Four Column Features -->
+                <div class="features-four-col">
+                    <div class="feature-card-small">
+                        <div class="feature-icon-small">🚀</div>
+                        <h4>Lightning Fast</h4>
+                        <p>Upload and access files instantly with our global CDN network.</p>
+                    </div>
+                    <div class="feature-card-small">
+                        <div class="feature-icon-small">📊</div>
+                        <h4>Advanced Analytics</h4>
+                        <p>Track usage patterns and optimize your workflow with detailed insights.</p>
+                    </div>
+                    <div class="feature-card-small">
+                        <div class="feature-icon-small">🔄</div>
+                        <h4>Smart Sync</h4>
+                        <p>Automatic syncing across all devices with conflict resolution.</p>
+                    </div>
+                    <div class="feature-card-small">
+                        <div class="feature-icon-small">🌐</div>
+                        <h4>API Integration</h4>
+                        <p>Connect with 1000+ apps through our powerful REST API.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+<script src="/static/tooplate-cloud-scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction of University</title>
+    <link href="/static/tooplate-cloud-sync-style.css" rel="stylesheet"> 
+    <style>
+        .contact-content {
+          align-content: center;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Dropout Prediction of University</div>
+            <div class="nav-links">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'register' %}">Registration</a>
+                <a href="{% url 'login' %}">Login</a>
+                
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#" class="cta-button">Start Free Trial</a>
+        </div>
+    </nav>
+
+    <br><br>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>Get in Touch</h2>
+                <p class="contact-subtitle">Already Register? Can you enter your Register Credential and Login</p>
+            </div>
+            
+            <div class="contact-content">
+                
+                <div class="contact-form-wrapper">
+                   
+                    <div class="form-header">
+                        <center><h3>Login Form</h3>
+                        <p>Fill out the form below for Signin successfully.</p></center>
+                    </div>
+                    <form id="1" action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="john@example.com" name="email" required>
+                        </div>
+                        
+                       
+                        <div class="form-group">
+                            <label for="name">Password</label>
+                            <input type="password" id="password" placeholder="Password" name="password" required>
+                        </div>
+                           
+                        
+                        <button type="submit" class="submit-button">Login</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                alert('{{ message }}');
+            {% endfor %}
+        {% endif %}
+    </script>
+    
+<script src="/static/tooplate-cloud-scripts.js"></script>
+</body>
+</html>

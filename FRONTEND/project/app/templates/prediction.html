@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropout Prediction of University</title>
+  <link href="/static/tooplate-cloud-sync-style.css" rel="stylesheet">
+  <style>
+    /* Centering the form inside the page */
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* Card Styling */
+    .form-card {
+      background: rgb(181, 182, 231);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Title */
+    .form-card h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    /* Flexbox for two fields per row */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 15px 0;
+    }
+
+    .form-row .input-container,
+    .form-row .select-container {
+      width: 48%; /* Adjust width to fit two fields in a row */
+      margin-bottom: 15px;
+    }
+
+    /* Add stylish select dropdown */
+    .custom-select,
+    .custom-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #aaa;
+      border-radius: 8px;
+      background-color: #f1f1f1;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .custom-select:focus,
+    .custom-input:focus {
+      border-color: #4caf50;
+      outline: none;
+      background-color: #eaf7e8;
+    }
+
+    .custom-select-wrapper {
+      position: relative;
+    }
+
+    .custom-select-wrapper::after {
+      content: '▼';
+      font-size: 18px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #4caf50;
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+
+    .custom-select-wrapper.open::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    /* Hover effect for select */
+    .custom-select:hover {
+      background-color: #e8f3e1;
+    }
+
+    /* Style for Submit Button */
+    .submit-btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 500px) {
+      .form-card {
+        padding: 20px;
+      }
+
+      .form-row .input-container,
+      .form-row .select-container {
+        width: 100%; /* Full width for small screens */
+      }
+
+      .submit-btn {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Dropout Prediction of University</div>
+      <div class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'view_dataset' %}">View Dataset</a>
+        <a href="{% url 'model_train' %}">Model Train</a>
+        <a href="{% url 'prediction' %}">Prediction</a>
+        <a href="{% url 'index' %}">Logout</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <br><br><br>
+
+  <!-- Form Section -->
+  <div class="form-container">
+    <div class="form-card">
+      <div>
+        {% if msg %}
+        <h2 style="color: #4caf50;">{{ msg }}</h2>
+        {% endif %}
+      </div>
+      <form method="POST" action="{% url 'prediction' %}">
+        {% csrf_token %}
+        <h2>Enter Details for Prediction</h2>
+
+        <!-- Select Fields (6 Select Tags) -->
+        <div class="form-row">
+          <div class="select-container">
+            <select class="custom-select" name="num1" required>
+              <option value="">Application mode</option>
+              <option value="1">1st phase—general contingent</option>
+              <option value="2">Ordinance No. 612/93</option>
+              <option value="3">1st phase—special contingent (Azores Island)</option>
+              <option value="4">Holders of other higher courses</option>
+              <option value="5">Ordinance No. 854-B/99</option>
+              <option value="6">International student (bachelor)</option>
+              <option value="7">1st phase—special contingent (Madeira Island)</option>
+              <option value="8">2nd phase—general contingent</option>
+              <option value="9">3rd phase—general contingent</option>
+              <option value="10">Ordinance No. 533-A/99, item b2 (Different Plan)</option>
+              <option value="11">Ordinance No. 533-A/99, item b3 (Other Institution)</option>
+              <option value="12">Over 23 years old</option>
+              <option value="13">Transfer</option>
+              <option value="14">Change in course</option>
+              <option value="15">Technological specialization diploma holders</option>
+              <option value="16">Change in institution/course</option>
+              <option value="17">Short cycle diploma holders</option>
+              <option value="18">Change in institution/course (International)</option>
+            </select>
+          </div>
+
+          <div class="select-container">
+            <select class="custom-select" name="num2" required>
+              <option value="">Displaced</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="select-container">
+            <select class="custom-select" name="num3" required>
+              <option value="">Debtor</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="select-container">
+            <select class="custom-select" name="num4" required>
+              <option value="">Tuition fees up to date</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="select-container">
+            <select class="custom-select" name="num5" required>
+              <option value="">Gender</option>
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+
+          <div class="select-container">
+            <select class="custom-select" name="num6" required>
+              <option value="">Scholarship holder</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Input Fields (9 Input Tags) -->
+        <div class="form-row">
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num7" placeholder="Age at enrollment" required>
+          </div>
+
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num8" placeholder="Curricular units 1st sem (enrolled)" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num9" placeholder="Curricular units 1st sem (evaluations)" required>
+          </div>
+
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num10" placeholder="Curricular units 1st sem (approved)" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num11" placeholder="Curricular units 1st sem (grade)" required>
+          </div>
+
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num12" placeholder="Curricular units 2nd sem (enrolled)" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num13" placeholder="Curricular units 2nd sem (evaluations)" required>
+          </div>
+
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num14" placeholder="Curricular units 2nd sem (approved)" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="input-container">
+            <input type="text" class="custom-input" name="num15" placeholder="Curricular units 2nd sem (grade)" required>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+
+     
+    </div>
+  </div>
+
+  <script src="/static/tooplate-cloud-scripts.js"></script>
+</body>
+
+</html>
